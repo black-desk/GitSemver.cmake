@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: 2023 Chen Linxuan <me@black-desk.cn>
+#
+# SPDX-License-Identifier: LGPL-3.0-or-later
+
 get_property(
   GITSEMVER_INITIALIZED GLOBAL ""
   PROPERTY GITSEMVER_INITIALIZED
