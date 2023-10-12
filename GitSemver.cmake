@@ -16,6 +16,8 @@ function(gitsemver_message)
   message(STATUS "GitSemver: " ${ARGN})
 endfunction()
 
+message(WARNING "GitSemver: --==Development Version==--")
+
 # GitSemver will write the result to varname if it successfully get version
 # string from git repository.
 function(GitSemver varname)
