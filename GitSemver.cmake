@@ -38,7 +38,7 @@ function(GitSemver varname)
     return()
   endif()
   execute_process(
-    COMMAND ${GIT_EXECUTABLE} describe --tags --long --dirty
+    COMMAND ${GIT_EXECUTABLE} describe --tags --match v* --long --dirty
     COMMAND ${SED_EXECUTABLE} -e s/-\\\([[:digit:]]\\+\\\)-g/+\\1\\./
     COMMAND ${SED_EXECUTABLE} -e s/-dirty\$/\\.dirty/
     COMMAND ${SED_EXECUTABLE} -e s/+0\\.[^\\.]\\+\\.\\?/+/
