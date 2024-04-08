@@ -21,6 +21,19 @@ message(WARNING "GitSemver: --==Development Version==--")
 # GitSemver will write the result to varname if it successfully get version
 # string from git repository.
 function(GitSemver varname)
+  if(CMAKE_VERSION VERSION_LESS 3.21)
+    # https://www.scivision.dev/cmake-project-is-top-level/
+    get_property(
+      not_top
+      DIRECTORY
+      PROPERTY PARENT_DIRECTORY)
+    if(NOT not_top)
+      set(PROJECT_IS_TOP_LEVEL true)
+    else()
+      set(PROJECT_IS_TOP_LEVEL false)
+    endif()
+  endif()
+
   if(NOT PROJECT_IS_TOP_LEVEL)
     return()
   endif()
